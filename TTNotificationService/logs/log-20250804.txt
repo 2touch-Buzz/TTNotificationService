@@ -1,0 +1,5 @@
+{"@t":"2025-08-04T15:53:50.0672347Z","@mt":"Starting TTNotificationService"}
+{"@t":"2025-08-04T15:53:50.2677661Z","@mt":"Now listening on: {address}","address":"http://localhost:5024","EventId":{"Id":14,"Name":"ListeningOnAddress"},"SourceContext":"Microsoft.Hosting.Lifetime"}
+{"@t":"2025-08-04T15:53:50.2734730Z","@mt":"Application started. Press Ctrl+C to shut down.","SourceContext":"Microsoft.Hosting.Lifetime"}
+{"@t":"2025-08-04T15:53:50.2741752Z","@mt":"Hosting environment: {EnvName}","EnvName":"Development","SourceContext":"Microsoft.Hosting.Lifetime"}
+{"@t":"2025-08-04T15:53:50.2743464Z","@mt":"Content root path: {ContentRoot}","ContentRoot":"/home/runner/work/TTNotificationService/TTNotificationService/TTNotificationService","SourceContext":"Microsoft.Hosting.Lifetime"}
