@@ -31,7 +31,7 @@ namespace Xenios.TTNotificationService.Middleware
         private static string GetOrCreateCorrelationId(HttpContext context)
         {
             // Check for incoming correlation ID header
-            if (context.Request.Headers.TryGetValue("X-Correlation-ID", out var correlationIdValues))
+            if (context.Request.Headers.TryGetValue("X-Correlation-ID", out Microsoft.Extensions.Primitives.StringValues correlationIdValues))
             {
                 string correlationId = correlationIdValues.FirstOrDefault() ?? string.Empty;
                 if (!string.IsNullOrWhiteSpace(correlationId) && Guid.TryParse(correlationId, out _))

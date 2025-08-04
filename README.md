@@ -26,7 +26,8 @@ TTNotificationService/
 ├── Xenios.TTNotificationService.sln          # Solution file
 ├── TTNotificationService/                     # Main web service project
 │   ├── Controllers/
-│   │   └── NotificationController.cs         # API endpoints
+│   │   ├── EmailController.cs               # Email API endpoint
+│   │   └── TextController.cs                # Text message API endpoint
 │   ├── Middleware/
 │   │   ├── CorrelationIdMiddleware.cs        # Request correlation tracking
 │   │   └── ExceptionHandlingMiddleware.cs    # Global exception handling
@@ -38,7 +39,8 @@ TTNotificationService/
 │   ├── appsettings.json                      # Configuration (with Serilog)
 │   └── TTNotificationService.csproj          # Project file
 └── Xenios.TTNotificationService.Tests/       # Unit test project
-    ├── NotificationControllerTests.cs        # Controller tests
+    ├── EmailControllerTests.cs             # Email controller tests
+    ├── TextControllerTests.cs              # Text controller tests
     ├── CorrelationIdMiddlewareTests.cs       # Middleware tests
     └── Xenios.TTNotificationService.Tests.csproj
 ```
@@ -78,7 +80,7 @@ When running in development mode, Swagger UI is available at:
 
 ## API Endpoints
 
-### POST /notification/email
+### POST /Email
 Sends an email notification (currently stubbed).
 
 **Request Body:**
@@ -99,7 +101,7 @@ Sends an email notification (currently stubbed).
 }
 ```
 
-### POST /notification/text
+### POST /Text
 Sends a text message notification (currently stubbed).
 
 **Request Body:**

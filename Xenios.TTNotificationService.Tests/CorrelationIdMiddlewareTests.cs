@@ -11,9 +11,9 @@ namespace Xenios.TTNotificationService.Tests
         public async Task InvokeAsync_GeneratesNewCorrelationId_WhenNoneProvided()
         {
             // Arrange
-            var context = new DefaultHttpContext();
-            var next = new Mock<RequestDelegate>();
-            var middleware = new CorrelationIdMiddleware(next.Object);
+            DefaultHttpContext context = new DefaultHttpContext();
+            Mock<RequestDelegate> next = new Mock<RequestDelegate>();
+            CorrelationIdMiddleware middleware = new CorrelationIdMiddleware(next.Object);
 
             // Act
             await middleware.InvokeAsync(context);
@@ -29,11 +29,11 @@ namespace Xenios.TTNotificationService.Tests
         public async Task InvokeAsync_UsesProvidedCorrelationId_WhenValid()
         {
             // Arrange
-            var correlationId = Guid.NewGuid().ToString();
-            var context = new DefaultHttpContext();
+            string correlationId = Guid.NewGuid().ToString();
+            DefaultHttpContext context = new DefaultHttpContext();
             context.Request.Headers["X-Correlation-ID"] = correlationId;
-            var next = new Mock<RequestDelegate>();
-            var middleware = new CorrelationIdMiddleware(next.Object);
+            Mock<RequestDelegate> next = new Mock<RequestDelegate>();
+            CorrelationIdMiddleware middleware = new CorrelationIdMiddleware(next.Object);
 
             // Act
             await middleware.InvokeAsync(context);
@@ -48,11 +48,11 @@ namespace Xenios.TTNotificationService.Tests
         public async Task InvokeAsync_GeneratesNewCorrelationId_WhenProvidedIdIsInvalid()
         {
             // Arrange
-            var invalidCorrelationId = "invalid-guid";
-            var context = new DefaultHttpContext();
+            string invalidCorrelationId = "invalid-guid";
+            DefaultHttpContext context = new DefaultHttpContext();
             context.Request.Headers["X-Correlation-ID"] = invalidCorrelationId;
-            var next = new Mock<RequestDelegate>();
-            var middleware = new CorrelationIdMiddleware(next.Object);
+            Mock<RequestDelegate> next = new Mock<RequestDelegate>();
+            CorrelationIdMiddleware middleware = new CorrelationIdMiddleware(next.Object);
 
             // Act
             await middleware.InvokeAsync(context);

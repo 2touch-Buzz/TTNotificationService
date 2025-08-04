@@ -32,14 +32,14 @@ namespace Xenios.TTNotificationService.Middleware
             context.Response.ContentType = "application/json";
             context.Response.StatusCode = 500;
 
-            var response = new ApiResponse<string>
+            ApiResponse<string> response = new ApiResponse<string>
             {
                 Success = false,
                 Message = "An internal server error occurred",
                 Data = null
             };
 
-            var json = JsonSerializer.Serialize(response, new JsonSerializerOptions
+            string json = JsonSerializer.Serialize(response, new JsonSerializerOptions
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase
             });
